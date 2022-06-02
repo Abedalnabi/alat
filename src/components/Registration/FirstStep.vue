@@ -9,7 +9,7 @@
 
       <v-btn
         width="300px"
-        class="my-5"
+        class="my-5 rounded-0"
         color="secondary"
         elevation="6"
         @click="$emit('setShowFalse', false, 'phone')"
@@ -19,7 +19,7 @@
       <br />
       <v-btn
         width="300px"
-        class=""
+        class="rounded-0"
         color="secondary"
         elevation="6"
         @click="$emit('setShowFalse', false, 'email')"

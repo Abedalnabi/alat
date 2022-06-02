@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <div id="app">
-      <v-container class="main ml-auto mr-auto pt-0">
+      <v-container class="main ml-auto mr-auto pt-0 ma-0 pa-0">
         <Header />
         <router-view />
         <Footer />
@@ -22,18 +22,17 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .main {
   direction: rtl;
-  min-width: 1170px;
+  max-width: 1400px;
 }
-
-@media only screen and (min-width: 320px) and (max-width: 667px) {
+@media only screen and (min-width: 0px) and (max-width: 600px) {
   .main {
     min-width: 100%;
   }
   .content {
-    min-width: 85%;
+    width: 90% !important;
   }
 }
 </style>

@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <v-main>
     <FirstStep @setShowFalse="setShowFalse" v-show="show" />
     <SecondStep :emailOrPhone="emailOrPhone" v-show="!show" />
-  </div>
+  </v-main>
 </template>
 
 <script>
