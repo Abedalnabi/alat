@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="wrapper">
     <v-content align="center" class="content mt-13 mr-auto ml-auto mb-13">
-      <p class="text-h5 font-weight-bold">انشاء حساب</p>
-      <p class="font-weight-regular">
+      <p class="font-weight-bold text-h5">انشاء حساب</p>
+      <p class="font-weight-regular text-h6">
         انشاء حساب عن طريق
         {{ emailOrPhone === "phone" ? "رقم الهاتف" : "الايميل" }}
       </p>
@@ -13,9 +13,7 @@
         <v-row>
           <v-col cols="12" md="6">
             <v-subheader class="pr-0 text-subtitle-1 black-text">
-              <span class="text-subtitle-1 black-text font-weight-medium"
-                >الاسم الاول*</span
-              >
+              <span class="text-subtitle-1 font-weight-bold">الاسم الاول*</span>
             </v-subheader>
             <v-text-field
               class="rounded-0 pb-0"
@@ -30,7 +28,7 @@
 
           <v-col cols="12" md="6">
             <v-subheader class="pr-0 text-subtitle-1 black-text">
-              <span class="text-subtitle-1 black-text font-weight-medium"
+              <span class="text-subtitle-1 black-text font-weight-bold"
                 >اسم العائلة *</span
               ></v-subheader
             >
@@ -45,19 +43,19 @@
           </v-col>
 
           <v-col
-            v-if="emailOrPhone === 'phone'"
             cols="12"
             md="6"
+            v-if="emailOrPhone === 'phone'"
             class="text-filed"
           >
-            <v-subheader class="pr-0 text-subtitle-1 black-text"
-              >رقم الهاتف*</v-subheader
-            >
+            <v-subheader class="pr-0 text-subtitle-1 black-text">
+              <span class="text-subtitle-1 font-weight-bold">رقم الهاتف*</span>
+            </v-subheader>
             <v-text-field
               v-model="phone"
               placeholder="رقم الهاتف"
               :rules="phoneRules"
-              type="number"
+              type="text"
               required
               solo
               reverse
@@ -70,7 +68,11 @@
             md="6"
             class="text-filed"
           >
-            <v-subheader>رقم الهاتف*</v-subheader>
+            <v-subheader class="pr-0 text-subtitle-1 black-text">
+              <span class="text-subtitle-1 font-weight-bold"
+                >تأكيد رقم الهاتف*</span
+              >
+            </v-subheader>
             <v-text-field
               v-model="confirmPhone"
               placeholder=" تأكيد رقم الهاتف "
@@ -84,9 +86,12 @@
           </v-col>
 
           <v-col v-if="emailOrPhone === 'email'" cols="12" md="6">
-            <v-subheader class="pr-0 text-subtitle-1 black-text"
-              >الايميل الشخصي*</v-subheader
-            >
+            <v-subheader class="pr-0 text-subtitle-1 black-text">
+              <span class="text-subtitle-1 font-weight-bold"
+                >الايميل الشخصي*
+              </span>
+            </v-subheader>
+
             <v-text-field
               v-model="email"
               placeholder="الايميل الشخصي"
@@ -100,8 +105,11 @@
 
           <v-col v-if="emailOrPhone === 'email'" cols="12" md="6">
             <v-subheader class="pr-0 text-subtitle-1 black-text">
-              تأكيد الايميل الشخصي*</v-subheader
-            >
+              <span class="text-subtitle-1 font-weight-bold"
+                >تأكيد الايميل الشخصي*</span
+              >
+            </v-subheader>
+
             <v-text-field
               v-model="confirmEmail"
               placeholder=" تأكيد الايميل الشخصي "
@@ -116,9 +124,11 @@
 
           <v-col cols="12" md="6">
             <v-subheader class="pr-0 text-subtitle-1 black-text">
-              الجنس*</v-subheader
-            >
+              <span class="text-subtitle-1 font-weight-bold">الجنس*</span>
+            </v-subheader>
+
             <v-select
+              label="الجنس"
               v-model="gender"
               :items="genderItems"
               :rules="[(v) => !!v || 'Item is required']"
@@ -129,9 +139,11 @@
 
           <v-col cols="12" md="6">
             <v-subheader class="pr-0 text-subtitle-1 black-text">
-              الجنسية*</v-subheader
-            >
+              <span class="text-subtitle-1 font-weight-bold">الجنسية*</span>
+            </v-subheader>
+
             <v-select
+              label="الجنسية"
               v-model="nationality"
               :items="nationalityItems"
               :rules="[(v) => !!v || 'Item is required']"
@@ -142,9 +154,11 @@
 
           <v-col cols="12" md="6">
             <v-subheader class="pr-0 text-subtitle-1 black-text">
-              المحافظة*</v-subheader
-            >
+              <span class="text-subtitle-1 font-weight-bold">المحافظة*</span>
+            </v-subheader>
+
             <v-select
+              label="المحافظة"
               v-model="governorate"
               :items="governorateItems"
               :rules="[(v) => !!v || 'Item is required']"
@@ -155,9 +169,10 @@
 
           <v-col cols="12" md="6">
             <v-subheader class="pr-0 text-subtitle-1 black-text">
-              المنطقة*
+              <span class="text-subtitle-1 font-weight-bold">المنطقة*</span>
             </v-subheader>
             <v-select
+              label="المنطقة"
               v-model="region"
               :items="regionItems"
               :rules="[(v) => !!v || 'Item is required']"
@@ -168,9 +183,12 @@
 
           <v-col cols="12" md="6">
             <v-subheader class="pr-0 text-subtitle-1 black-text">
-              تاريخ الميلاد*
+              <span class="text-subtitle-1 font-weight-bold"
+                >تاريخ الميلاد*</span
+              >
             </v-subheader>
             <v-menu
+              label="تاريخ الميلاد"
               v-model="menu2"
               :close-on-content-click="false"
               :nudge-right="0"
@@ -180,6 +198,7 @@
             >
               <template v-slot:activator="{ on, attrs }">
                 <v-text-field
+                  solo
                   v-model="date"
                   readonly
                   v-bind="attrs"
@@ -195,12 +214,14 @@
           </v-col>
         </v-row>
 
-        <p class="font-weight-bold mt-16">كلمة السر</p>
+        <p class="font-weight-bold text-h5 mt-9">كلمة السر</p>
         <v-divider class="m"></v-divider>
         <v-container>
           <v-row>
             <v-col cols="12" md="6" class="text-filed">
-              <v-subheader>كلمة السر*</v-subheader>
+              <v-subheader class="pr-0 text-subtitle-1 black-text">
+                <span class="text-subtitle-1 font-weight-bold">كلمة السر*</span>
+              </v-subheader>
               <v-text-field
                 v-model="password"
                 :append-icon="showPasswordEya ? 'mdi-eye' : 'mdi-eye-off'"
@@ -214,7 +235,11 @@
             </v-col>
 
             <v-col cols="12" md="6" class="text-filed">
-              <v-subheader> تأكيد كلمة السر*</v-subheader>
+              <v-subheader class="pr-0 text-subtitle-1 black-text">
+                <span class="text-subtitle-1 font-weight-bold"
+                  >تأكيد كلمة السر*</span
+                >
+              </v-subheader>
               <v-text-field
                 v-model="confirmPassword"
                 :append-icon="showPasswordEya ? 'mdi-eye' : 'mdi-eye-off'"
@@ -338,9 +363,9 @@ export default {
         // text API
         "https://api.github.com/repos/tannerlinsley/react-query"
       );
-      setTimeout(() => {
-        this.loader = !this.loader;
-      }, 2000);
+      // setTimeout(() => {
+      this.loader = !this.loader;
+      // }, 2000);
       this.nationalityItems.push(nationality);
     } catch (error) {
       console.log("das");
@@ -362,44 +387,44 @@ export default {
 </script>
 
 <style lang="scss">
-.content {
-  width: 70%;
-}
-.v-text-field.v-text-field--solo:not(.v-text-field--solo-flat)
-  > .v-input__control
-  > .v-input__slot {
-  border: solid 1px;
-  box-shadow: 0 0 0 0 !important;
-}
-.v-text-field.v-text-field--enclosed .v-text-field__details {
-  margin-bottom: 0px !important;
-}
-// .text-filed {
-
-//   padding: 0px !important;
-// }
-.col-md-6 {
-  padding-top: 0px !important;
-  padding-bottom: 0px !important;
-}
-.v-input__slot {
-  margin-bottom: 2px !important;
-}
-.v-messages__message {
-  position: relative;
-  right: 0px;
-}
-
-.v-application--is-ltr .v-messages {
-  text-align: start !important;
-}
-.theme--light.v-divider {
-  border-color: rgba(0, 0, 0) !important;
-}
-.theme--light.v-subheader {
-  color: rgba(0, 0, 0) !important;
-}
-.v-divider {
-  border-width: 3px 0 0 0 !important;
+.wrapper {
+  .content {
+    width: 70%;
+  }
+  .v-text-field.v-text-field--solo:not(.v-text-field--solo-flat)
+    > .v-input__control
+    > .v-input__slot {
+    border: solid 1px;
+    box-shadow: 0 0 0 0 !important;
+  }
+  .v-text-field.v-text-field--enclosed .v-text-field__details {
+    margin-bottom: 0px !important;
+  }
+  .col-md-6 {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+  }
+  .v-input__slot {
+    margin-bottom: 2px !important;
+  }
+  .v-messages__message {
+    position: absolute;
+    right: 0px;
+  }
+  .v-label {
+    position: relative !important;
+  }
+  .v-application--is-ltr .v-messages {
+    text-align: start !important;
+  }
+  .theme--light.v-divider {
+    border-color: rgba(0, 0, 0) !important;
+  }
+  .theme--light.v-subheader {
+    color: rgba(0, 0, 0) !important;
+  }
+  .v-divider {
+    border-width: 3px 0 0 0 !important;
+  }
 }
 </style>

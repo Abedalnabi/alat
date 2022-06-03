@@ -1,5 +1,5 @@
 <template>
-  <v-content align="center" class="content mt-13 mr-auto ml-auto mb-13">
+  <v-content align="center" class="content mt-13 mr-auto ml-auto mb-13 wrapper">
     <p class="text-h5 font-weight-bold">تسجيل الدخول</p>
     <p class="font-weight-bold subtile-1 mt-10">
       الرجاء ادخال بريدك او رقمك وكلمة السر المسجلين على منصة نحن

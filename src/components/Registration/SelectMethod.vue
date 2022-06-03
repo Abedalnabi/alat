@@ -1,7 +1,7 @@
 <template>
   <v-main class="my-10">
     <v-col align="center">
-      <p class="font-weight-bold text-h6">انشاء حساب</p>
+      <p class="font-weight-bold text-h5">انشاء حساب</p>
       <p class="font-weight-regular mb-1">يرجى اختيار الطريقة التي ترغب بها</p>
       <p class="font-weight-thin">
         هذه الخطوة مخصصة للذين ليس لديهم حساب على منصة نحن
