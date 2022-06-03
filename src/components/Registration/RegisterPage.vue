@@ -240,7 +240,7 @@
           انشاء حساب
         </v-btn>
 
-        <router-link color="blue" to="/login" class="d-block my-1"
+        <router-link color="blue" to="/login" class="d-block my-1 router-link"
           >الرجوع الى تسجيل الدخول
         </router-link>
       </v-form>

@@ -10,7 +10,7 @@
       v-model="valid"
       ref="loginForm"
     >
-      <v-row>
+      <v-row class="ml-0 mr-0">
         <v-col cols="12" md="12" class="pa-0 mt-6">
           <v-subheader class="pr-0 text-subtitle-1 black-text">
             <span class="text-subtitle-1 black-text font-weight-medium"
@@ -34,6 +34,7 @@
             >
           </v-subheader>
           <v-text-field
+            class="rounded-0 pb-0"
             v-model="password"
             :append-icon="showPasswordEya ? 'mdi-eye' : 'mdi-eye-off'"
             :type="showPasswordEya ? 'text' : 'password'"
@@ -45,12 +46,12 @@
           ></v-text-field>
         </v-col>
       </v-row>
-      <router-link color="blue" to="/login" class="d-block my-1"
+      <router-link to="/login" class="d-block my-1 router-link"
         >نسيت لكمة المرور ؟
       </router-link>
       <v-btn
         color="secondary"
-        width="230px"
+        width="100%"
         elevation="0"
         class="mt-6 d-block ma-auto rounded-0"
         @click="validate"
@@ -59,7 +60,7 @@
       </v-btn>
       <v-btn
         color="white"
-        width="230px"
+        width="100%"
         elevation="0"
         :style="`border:solid 2px ${colors.secondary} !important;`"
         class="mt-6 d-block ma-auto rounded-0"
@@ -114,5 +115,7 @@ export default {
   margin: auto;
   width: 300px;
   /* border: 3px solid green; */
+}
+.row {
 }
 </style>

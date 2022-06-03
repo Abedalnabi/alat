@@ -12,8 +12,7 @@
           /></div
       ></v-toolbar-title>
       <v-spacer></v-spacer>
-
-      <v-toolbar-items class="">
+      <v-toolbar-items class="d-none d-md-flex">
         <v-btn text @click="scroll('hussein-award')">
           جائزة الحسين للعمل التطوعي
         </v-btn>
@@ -28,6 +27,37 @@
       <v-btn height="40px" color="secondary" @click="goLogin" class="rounded-0">
         تسجيل الدخول
       </v-btn>
+      <v-app-bar-nav-icon
+        class="hidden-md-and-up"
+        @click="drawer = true"
+      ></v-app-bar-nav-icon>
+
+      <v-navigation-drawer
+        v-model="drawer"
+        class="mt-14"
+        absolute
+        temporary
+        height=""
+        width="100%"
+      >
+        <v-list nav dense>
+          <v-list-item-group>
+            <v-list-item>
+              <v-btn text @click="scroll('hussein-award')">
+                جائزة الحسين للعمل التطوعي
+              </v-btn>
+            </v-list-item>
+            <v-btn text @click="scroll('volunteer-guide')"> دليل التطوع </v-btn>
+            <v-list-item>
+              <v-btn text @click="scroll('charter')">
+                ميثاق العمل التطوعي الاردني
+              </v-btn>
+            </v-list-item>
+
+            <v-list-item> </v-list-item>
+          </v-list-item-group>
+        </v-list>
+      </v-navigation-drawer>
     </v-toolbar>
     <v-content class="divClass"></v-content>
   </div>
@@ -36,11 +66,15 @@
 <script>
 export default {
   name: "HraderComponent",
+  data() {
+    return {
+      drawer: false,
+    };
+  },
   methods: {
     async scroll(refName) {
       if (window.location.pathname !== "/") await this.$router.push("/");
       const element = document.getElementById(refName);
-      console.log("refName", refName);
       element.scrollIntoView({ behavior: "smooth" });
     },
     goHome() {
@@ -53,9 +87,9 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .divClass {
-  min-height: 64px;
+  height: 64px;
   width: 100%;
 }
 .fixedNavbar {

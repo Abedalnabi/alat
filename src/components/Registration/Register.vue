@@ -1,17 +1,17 @@
 <template>
   <v-main>
-    <FirstStep @setShowFalse="setShowFalse" v-show="show" />
+    <SelectMethod @setShowFalse="setShowFalse" v-show="show" />
     <SecondStep :emailOrPhone="emailOrPhone" v-show="!show" />
   </v-main>
 </template>
 
 <script>
-import FirstStep from "./FirstStep";
-import SecondStep from "./SecondStep.vue";
+import SelectMethod from "./SelectMethod";
+import SecondStep from "./RegisterPage.vue";
 export default {
   name: "RegisterPage",
   components: {
-    FirstStep,
+    SelectMethod,
     SecondStep,
   },
   data() {
