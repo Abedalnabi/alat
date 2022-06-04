@@ -4,11 +4,13 @@
       <v-toolbar-title>
         <div class="">
           <img
+            wi
             @click="goHome"
             style="cursor: pointer"
             class="logo"
             src="https://cdn.mos.cms.futurecdn.net/m5ADpuAdKTpadnUWmsCrHJ.jpg"
             width="50px"
+            height="50px"
           /></div
       ></v-toolbar-title>
       <v-spacer></v-spacer>
@@ -94,6 +96,7 @@ export default {
 }
 .fixedNavbar {
   position: fixed !important;
+  top: 0 !important;
   width: 1400px;
   min-height: 64px;
   z-index: 100;

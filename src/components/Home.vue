@@ -39,7 +39,6 @@
             </v-col>
           </v-row>
         </v-col>
-
         <v-col
           id="volunteer-guide"
           class="d-flex flex-column justify-center align-center grey lighten-2 mt-6 pl-12 pr-12"

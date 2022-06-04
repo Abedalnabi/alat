@@ -77,7 +77,7 @@
               v-model="confirmPhone"
               placeholder=" تأكيد رقم الهاتف "
               :error-messages="confirmPhoneError"
-              type="number"
+              type="text"
               :rules="confirmPhoneRules.concat(PhoneConfirmationRule)"
               required
               solo
