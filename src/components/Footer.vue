@@ -1,5 +1,5 @@
 <template>
-  <v-footer color="heder_footer" padless>
+  <v-footer width="1400px" class="ma-auto" absolute bottom color="heder_footer">
     <v-col class="text-center">
       <strong>Footer</strong>
     </v-col>
@@ -12,4 +12,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+.footer {
+  position: fixed;
+  bottom: 0;
+  background-color: red;
+  width: 100%;
+  height: 200px;
+}
+</style>

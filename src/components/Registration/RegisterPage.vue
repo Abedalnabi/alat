@@ -272,13 +272,17 @@
       <div v-show="!loader">
         <div class="text-center">
           <v-progress-circular
-            :size="200"
-            color="primary"
+            class="mt-16 pt-16"
+            :size="100"
+            color="secondary"
             indeterminate
           ></v-progress-circular>
         </div>
       </div>
     </v-content>
+    <!-- <vue-recaptcha
+      sitekey="6LeL9UUgAAAAALqS6q-zOknQ-7s5UJ6AYauFD1Za"
+    ></vue-recaptcha> -->
   </div>
 </template>
 
@@ -317,25 +321,27 @@ export default {
     ],
     email: "",
     emailRules: [
-      (v) => !!v || "E-mail is required",
-      (v) => /.+@.+/.test(v) || "E-mail must be valid",
+      (v) => !!v || "هذا الحقل مطلوب",
+      (v) => /.+@.+/.test(v) || "الرجاء إدخال البريد الإلكتروني بشكل صحيح",
     ],
     password: "",
     passwordRules: [
-      (v) => !!v || "password is required",
-      (v) => (v && v.length >= 8) || "password must be valid",
+      (v) => !!v || "هذا الحقل مطلوب",
+      (v) => (v && v.length >= 8) || "6 أحرف على الأقل",
     ],
     confirmEmail: "",
-    confirmEmailRules: [(v) => !!v || "E-mail is required"],
+    confirmEmailRules: [(v) => !!v || "هذا الحقل مطلوب"],
     confirmPassword: "",
-    confirmPasswordRules: [(v) => !!v || "password is required"],
+    confirmPasswordRules: [(v) => !!v || "هذا الحقل مطلوب"],
     phone: "",
     phoneRules: [
-      (v) => !!v || "Phone is required",
-      (v) => (v && v.length >= 10) || "Phone must be valid",
+      (v) => !!v || "هذا الحقل مطلوب",
+      (v) =>
+        (v && v.length >= 10) ||
+        "الرجاء إدخال صيغة رقم هاتف صحيحة (أرقام محلية فقط)",
     ],
     confirmPhone: "",
-    confirmPhoneRules: [(v) => !!v || "password is required"],
+    confirmPhoneRules: [(v) => !!v || "هذا الحقل مطلوب"],
     showPasswordEya: false,
     gender: null,
     genderItems: ["ذكر", "انثى"],
@@ -363,9 +369,9 @@ export default {
         // text API
         "https://api.github.com/repos/tannerlinsley/react-query"
       );
-      // setTimeout(() => {
-      this.loader = !this.loader;
-      // }, 2000);
+      setTimeout(() => {
+        this.loader = !this.loader;
+      }, 2000);
       this.nationalityItems.push(nationality);
     } catch (error) {
       console.log("das");
@@ -373,14 +379,14 @@ export default {
   },
   computed: {
     EmailConfirmationRule() {
-      return () => this.email === this.confirmEmail || "email must match";
+      return () => this.email === this.confirmEmail || "الايميل غير مطابق";
     },
     PasswordConfirmationRule() {
       return () =>
-        this.password === this.confirmPassword || "password must match";
+        this.password === this.confirmPassword || "كلمتين السر غير متطابقتين";
     },
     PhoneConfirmationRule() {
-      return () => this.phone === this.confirmPhone || "Phone must match";
+      return () => this.phone === this.confirmPhone || "رقم الهاتف غير متطابق";
     },
   },
 };
